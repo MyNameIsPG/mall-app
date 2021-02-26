@@ -1,11 +1,12 @@
 <template>
-	<view>
-		home
+	<view class="u-wrap">
+		settingInformation
 	</view>
 </template>
 
 <script>
 	export default {
+		name: "settingInformation",
 		data() {
 			return {
 				

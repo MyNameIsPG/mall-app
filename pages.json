@@ -1,9 +1,8 @@
 {
-	"pages": [
-		{
-			"path": "pages/cart/cart",
-			"style":{
-				"app-plus":{
+	"pages": [{
+			"path": "pages/cart/cartData",
+			"style": {
+				"app-plus": {
 					"titleNView": false
 				},
 				"navigationBarBackgroundColor": "#ff5529",
@@ -12,32 +11,33 @@
 			}
 		},
 		{
-		    "path" : "pages/cart/cartData",
-		    "style":{
-		    	"app-plus":{
-		    		"titleNView": false
-		    	},
-		    	"navigationBarBackgroundColor": "#ff5529",
-		    	"navigationBarTextStyle": "white",
-		    	"navigationBarTitleText": "购物车"
-		    }
+			"path": "pages/cart/cart",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarBackgroundColor": "#ff5529",
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "购物车"
+			}
 		},
-	    { "path": "pages/home/home" },
-        { 
+		{
 			"path": "pages/classify/classify",
-			"style":{
-				"app-plus":{
+			"style": {
+				"app-plus": {
 					"titleNView": false
 				},
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"navigationBarTitleText": "分类"
 			}
 		},
-        
-        { 
+		{
 			"path": "pages/my/my",
-			"style":{
-				"app-plus":{
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"mp-weixin": {
 					"titleNView": false
 				},
 				"navigationBarBackgroundColor": "#ff5529",
@@ -45,8 +45,32 @@
 				"navigationBarTitleText": "我的"
 			}
 		},
-		{ "path": "pages/index/index" }
-    ],
+		{
+			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/setting/setting",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "设置"
+			}
+		}, {
+			"path": "pages/setting/settingInformation",
+			"style": {
+				"navigationBarTitleText": "我的信息",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/myOrderList/myOrderList",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+	],
 	"easycom": {
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
@@ -54,11 +78,10 @@
 		"color": "#333333",
 		"selectedColor": "#ff5529",
 		"backgroundColor": "#ffffff",
-		"list": [
-			{
+		"list": [{
 				"iconPath": "/static/tabBar/home.png",
 				"selectedIconPath": "/static/tabBar/home_h.png",
-				"pagePath": "pages/home/home",
+				"pagePath": "pages/index/index",
 				"text": "首页"
 			},
 			{
