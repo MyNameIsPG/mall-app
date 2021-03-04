@@ -1,42 +1,45 @@
 <template>
 	<view class="u-wrap">
-		<view class="page-box">
-			<view><no-cart></no-cart></view>
-			<view class="u-text-center"><image style="width: 208px; height: 20px;" src="/static/wntj_title.png"></image></view>
-		</view>
-		<view class="wrap">
-			<u-waterfall v-model="flowList" ref="uWaterfall">
-				<template v-slot:left="{ leftList }">
-					<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
-						<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
-						<u-lazy-load threshold="-150" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-						<view class="demo-title">{{ item.title }}</view>
-						<view class="demo-price">{{ item.price }}元</view>
-						<view class="demo-tag">
-							<view class="demo-tag-owner">自营</view>
-							<view class="demo-tag-text">放心购</view>
+		<u-navbar title="分类" :background="{ background: '#ff5529' }" titleColor="#fff" :is-back="false" />
+		<view class="u-wrap">
+			<view class="page-box">
+				<view><no-cart></no-cart></view>
+				<view class="u-text-center"><image style="width: 208px; height: 20px;" src="/static/wntj_title.png"></image></view>
+			</view>
+			<view class="wrap">
+				<u-waterfall v-model="flowList" ref="uWaterfall">
+					<template v-slot:left="{ leftList }">
+						<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
+							<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+							<u-lazy-load threshold="-150" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
+							<view class="demo-title">{{ item.title }}</view>
+							<view class="demo-price">{{ item.price }}元</view>
+							<view class="demo-tag">
+								<view class="demo-tag-owner">自营</view>
+								<view class="demo-tag-text">放心购</view>
+							</view>
+							<view class="demo-shop">{{ item.shop }}</view>
+							<u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon>
 						</view>
-						<view class="demo-shop">{{ item.shop }}</view>
-						<u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon>
-					</view>
-				</template>
-				<template v-slot:right="{ rightList }">
-					<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
-						<u-lazy-load threshold="-150" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-						<view class="demo-title">{{ item.title }}</view>
-						<view class="demo-price">{{ item.price }}元</view>
-						<view class="demo-tag">
-							<view class="demo-tag-owner">自营</view>
-							<view class="demo-tag-text">放心购</view>
+					</template>
+					<template v-slot:right="{ rightList }">
+						<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
+							<u-lazy-load threshold="-150" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
+							<view class="demo-title">{{ item.title }}</view>
+							<view class="demo-price">{{ item.price }}元</view>
+							<view class="demo-tag">
+								<view class="demo-tag-owner">自营</view>
+								<view class="demo-tag-text">放心购</view>
+							</view>
+							<view class="demo-shop">{{ item.shop }}</view>
+							<u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon>
 						</view>
-						<view class="demo-shop">{{ item.shop }}</view>
-						<u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon>
-					</view>
-				</template>
-			</u-waterfall>
-			<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
+					</template>
+				</u-waterfall>
+				<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
+			</view>
+			<u-back-top :scroll-top="scrollTop"></u-back-top>
 		</view>
-		<u-back-top :scroll-top="scrollTop"></u-back-top>
 	</view>
 </template>
 
@@ -130,12 +133,14 @@ export default {
 	},
 	methods: {
 		addRandomData() {
+			let _this = this
 			let arr = [];
 			for (let i = 0; i < 10; i++) {
-				let index = this.$u.random(0, this.list.length - 1);
+				let index = _this.$u.random(0, _this.list.length - 1);
 				// 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-				let item = JSON.parse(JSON.stringify(this.list[index]));
-				item.id = this.$u.guid();
+				let data = _this.list[index]
+				let item = JSON.parse(JSON.stringify(data));
+				item.id = _this.$u.guid();
 				arr.push(item);
 			}
 			this.flowList = [...this.flowList, ...arr];

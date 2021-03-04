@@ -11,6 +11,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-search:before {
+  content: "\e65c";
+}
+
 .icon-arrow-right:before {
   content: "\e743";
 }

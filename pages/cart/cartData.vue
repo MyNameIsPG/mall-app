@@ -1,63 +1,66 @@
 <template>
 	<view class="u-wrap">
-		<view class="my-top">
-			<view class="head">
-				<text class="text">共1件宝贝</text>
-				<text class="btns">
-					<text class="icon iconfont icon-post"></text>
-					编辑购物车
-				</text>
-			</view>
-		</view>
-
-		<view class="cart-list">
-			<view class="item">
-				<view class="checkbox-icon"><text class="icon iconfont icon-roundcheck"></text></view>
-				<view class="content">
-					<view class="img-pic"><image src="/static/pms-pic/goods_thumb_01.png"></image></view>
-					<view class="content-right">
-						<view class="content-right-title">薇妮(Viney)时尚包包女包牛皮单肩包女休闲百搭斜挎包韩版小方包潮(水电费枪色)</view>
-						<view class="content-right-nums">
-							<view class="price">￥80</view>
-							<view class="pedometer"><u-number-box v-model="value"></u-number-box></view>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="item" v-for="item in 20" :key="item">
-				<view class="checkbox-icon"><text class="icon iconfont icon-round"></text></view>
-				<view class="content">
-					<view class="img-pic"><image src="/static/pms-pic/goods_thumb_01.png"></image></view>
-					<view class="content-right">
-						<view class="content-right-title">薇妮(Viney)时尚包包女包牛皮单肩包女休闲百搭斜挎包韩版小方包潮(水电费枪色)</view>
-						<view class="content-right-nums">
-							<view class="price">￥80</view>
-							<view class="pedometer"><u-number-box v-model="value"></u-number-box></view>
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-
-		<u-back-top :scroll-top="scrollTop"></u-back-top>
-		<view class="navigation">
-			<view class="left">
-				<view class="item">
-					<view class="text u-line-1">
-						<text class="icon iconfont icon-round"></text>
-						全选
-					</view>
-				</view>
-			</view>
-			<view class="right">
-				<view style="font-size: 30rpx;margin-right: 20rpx;">
-					合计：
-					<text style="color: red;font-weight: bold;">
-						￥
-						<text style="font-size: 36rpx;">0</text>
+		<u-navbar title="分类" :background="{ background: '#ff5529' }" titleColor="#fff" :is-back="false" />
+		<view class="u-wrap">
+			<view class="my-top">
+				<view class="head">
+					<text class="text">共1件宝贝</text>
+					<text class="btns">
+						<text class="icon iconfont icon-post"></text>
+						编辑购物车
 					</text>
 				</view>
-				<view class="buy btn u-line-1">去下单</view>
+			</view>
+
+			<view class="cart-list">
+				<view class="item">
+					<view class="checkbox-icon"><text class="icon iconfont icon-roundcheck"></text></view>
+					<view class="content">
+						<view class="img-pic"><image src="/static/pms-pic/goods_thumb_01.png"></image></view>
+						<view class="content-right">
+							<view class="content-right-title">薇妮(Viney)时尚包包女包牛皮单肩包女休闲百搭斜挎包韩版小方包潮(水电费枪色)</view>
+							<view class="content-right-nums">
+								<view class="price">￥80</view>
+								<view class="pedometer"><u-number-box v-model="value"></u-number-box></view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="item" v-for="item in 20" :key="item">
+					<view class="checkbox-icon"><text class="icon iconfont icon-round"></text></view>
+					<view class="content">
+						<view class="img-pic"><image src="/static/pms-pic/goods_thumb_01.png"></image></view>
+						<view class="content-right">
+							<view class="content-right-title">薇妮(Viney)时尚包包女包牛皮单肩包女休闲百搭斜挎包韩版小方包潮(水电费枪色)</view>
+							<view class="content-right-nums">
+								<view class="price">￥80</view>
+								<view class="pedometer"><u-number-box v-model="value"></u-number-box></view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<u-back-top :scroll-top="scrollTop"></u-back-top>
+			<view class="navigation">
+				<view class="left">
+					<view class="item">
+						<view class="text u-line-1">
+							<text class="icon iconfont icon-round"></text>
+							全选
+						</view>
+					</view>
+				</view>
+				<view class="right">
+					<view style="font-size: 30rpx;margin-right: 20rpx;">
+						合计：
+						<text style="color: red;font-weight: bold;">
+							￥
+							<text style="font-size: 36rpx;">0</text>
+						</text>
+					</view>
+					<view class="buy btn u-line-1">去下单</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -109,7 +112,7 @@ export default {
 }
 .cart-list {
 	position: absolute;
-	top: 50px;
+	top: 110px;
 	left: 0px;
 	right: 0px;
 	z-index: 99;

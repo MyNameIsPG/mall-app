@@ -1,112 +1,113 @@
 <template>
 	<view class="u-wrap">
-		<view class="my-top">
-			<view class="head">
-				<text @click="settingBtn" class="icon iconfont icon-shezhi1"></text>
-			</view>
-			<view class="user-info">
-				<view class="portrait"><image src="/static/user-pic.jpg"></image></view>
-				<view class="info">
-					<view class="nickname"><text>爱跳舞的汤姆</text></view>
-					<view class="rank">
-						<image src="/static/rank.png"></image>
-						<text>v1</text>
+		<u-navbar title="我的" :background="{ background: '#ff5529' }" titleColor="#fff" :is-back="false" />
+		<view class="u-wrap">
+			<view class="my-top">
+				<view class="head"><text @click="settingBtn" class="icon iconfont icon-shezhi1"></text></view>
+				<view class="user-info">
+					<view class="portrait"><image src="/static/user-pic.jpg"></image></view>
+					<view class="info">
+						<view class="nickname"><text>爱跳舞的汤姆</text></view>
+						<view class="rank">
+							<image src="/static/rank.png"></image>
+							<text>v1</text>
+						</view>
+					</view>
+				</view>
+				<view class="focus-area">
+					<view class="list">
+						<view class="num"><text>28</text></view>
+						<view class="title"><text>商品关注</text></view>
+					</view>
+					<view class="list">
+						<view class="num"><text>28</text></view>
+						<view class="title"><text>喜欢的内容</text></view>
+					</view>
+					<view class="list">
+						<view class="num"><text>28</text></view>
+						<view class="title"><text>浏览记录</text></view>
 					</view>
 				</view>
 			</view>
-			<view class="focus-area">
+			<!-- 订单信息 -->
+			<view class="order">
+				<view class="order-title">
+					<text class="text">我的订单</text>
+					<text class="link">查看全部订单 ></text>
+				</view>
+				<view class="order-info">
+					<view class="list" @click="orderBtn(1)">
+						<view class="icon">
+							<text class="icon iconfont icon-daifukuan"></text>
+							<text class="num">22</text>
+						</view>
+						<view class="title"><text>待付款</text></view>
+					</view>
+					<view class="list" @click="orderBtn(1)">
+						<view class="icon">
+							<text class="icon iconfont icon-weishiyong"></text>
+							<!-- <text class="num">22</text> -->
+						</view>
+						<view class="title"><text>待发货</text></view>
+					</view>
+					<view class="list" @click="orderBtn(1)">
+						<view class="icon">
+							<text class="icon iconfont icon-daishouhuo3"></text>
+							<!-- <text class="num">22</text> -->
+						</view>
+						<view class="title"><text>待收货</text></view>
+					</view>
+					<view class="list" @click="orderBtn(1)">
+						<view class="icon">
+							<text class="icon iconfont icon-daipinglun1"></text>
+							<!-- <text class="num">22</text> -->
+						</view>
+						<view class="title"><text>评价</text></view>
+					</view>
+					<view class="list" @click="orderBtn(1)">
+						<view class="icon">
+							<text class="icon iconfont icon-daifukuan1"></text>
+							<!-- <text class="num">22</text> -->
+						</view>
+						<view class="title"><text>退换</text></view>
+					</view>
+				</view>
+			</view>
+			<!-- 钱包 -->
+			<view class="wallet-info">
 				<view class="list">
-					<view class="num"><text>28</text></view>
-					<view class="title"><text>商品关注</text></view>
-				</view>
-				<view class="list">
-					<view class="num"><text>28</text></view>
-					<view class="title"><text>喜欢的内容</text></view>
-				</view>
-				<view class="list">
-					<view class="num"><text>28</text></view>
-					<view class="title"><text>浏览记录</text></view>
-				</view>
-			</view>
-		</view>
-		<!-- 订单信息 -->
-		<view class="order">
-			<view class="order-title">
-				<text class="text">我的订单</text>
-				<text class="link">查看全部订单 ></text>
-			</view>
-			<view class="order-info">
-				<view class="list" @click="orderBtn(1)">
-					<view class="icon">
-						<text class="icon iconfont icon-daifukuan"></text>
-						<text class="num">22</text>
-					</view>
-					<view class="title"><text>待付款</text></view>
-				</view>
-				<view class="list" @click="orderBtn(1)">
-					<view class="icon">
-						<text class="icon iconfont icon-weishiyong"></text>
-						<!-- <text class="num">22</text> -->
-					</view>
-					<view class="title"><text>待发货</text></view>
-				</view>
-				<view class="list" @click="orderBtn(1)">
-					<view class="icon">
-						<text class="icon iconfont icon-daishouhuo3"></text>
-						<!-- <text class="num">22</text> -->
-					</view>
-					<view class="title"><text>待收货</text></view>
-				</view>
-				<view class="list" @click="orderBtn(1)">
-					<view class="icon">
-						<text class="icon iconfont icon-daipinglun1"></text>
-						<!-- <text class="num">22</text> -->
-					</view>
-					<view class="title"><text>评价</text></view>
-				</view>
-				<view class="list" @click="orderBtn(1)">
-					<view class="icon">
-						<text class="icon iconfont icon-daifukuan1"></text>
-						<!-- <text class="num">22</text> -->
-					</view>
-					<view class="title"><text>退换</text></view>
-				</view>
-			</view>
-		</view>
-		<!-- 钱包 -->
-		<view class="wallet-info">
-			<view class="list">
-				<view class="icon"><text class="number">140</text></view>
-				<view class="title"><text>积分</text></view>
-			</view>
-			<view class="list">
-				<view class="icon"><text class="number">2</text></view>
-				<view class="title"><text>优惠券</text></view>
-			</view>
-			<view class="list">
-				<view class="icon"><text class="number">200.00</text></view>
-				<view class="title"><text>余额</text></view>
-			</view>
-			<view class="list">
-				<view class="icon"><text class="iconfont icon-qianbao1"></text></view>
-				<view class="title"><text class="action">我的钱包</text></view>
-			</view>
-		</view>
-		<!-- 我的服务 -->
-		<view class="my-service">
-			<view class="title"><text>我的服务</text></view>
-			<view class="service-list">
-				<view class="list">
-					<view class="thumb"><text class="icon iconfont icon-fankui51"></text></view>
-					<view class="name"><text>意见反馈</text></view>
+					<view class="icon"><text class="number">140</text></view>
+					<view class="title"><text>积分</text></view>
 				</view>
 				<view class="list">
-					<view class="thumb"><text class="icon iconfont icon-shiliangzhinengduixiangx-copy"></text></view>
-					<view class="name"><text>客服热线</text></view>
+					<view class="icon"><text class="number">2</text></view>
+					<view class="title"><text>优惠券</text></view>
 				</view>
-				<view class="list" @click="settingBtn">
-					<view class="thumb"><text class="icon iconfont icon-shezhi1"></text></view>
-					<view class="name"><text>设置</text></view>
+				<view class="list">
+					<view class="icon"><text class="number">200.00</text></view>
+					<view class="title"><text>余额</text></view>
+				</view>
+				<view class="list">
+					<view class="icon"><text class="iconfont icon-qianbao1"></text></view>
+					<view class="title"><text class="action">我的钱包</text></view>
+				</view>
+			</view>
+			<!-- 我的服务 -->
+			<view class="my-service">
+				<view class="title"><text>我的服务</text></view>
+				<view class="service-list">
+					<view class="list">
+						<view class="thumb"><text class="icon iconfont icon-fankui51"></text></view>
+						<view class="name"><text>意见反馈</text></view>
+					</view>
+					<view class="list">
+						<view class="thumb"><text class="icon iconfont icon-shiliangzhinengduixiangx-copy"></text></view>
+						<view class="name"><text>客服热线</text></view>
+					</view>
+					<view class="list" @click="settingBtn">
+						<view class="thumb"><text class="icon iconfont icon-shezhi1"></text></view>
+						<view class="name"><text>设置</text></view>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -119,7 +120,7 @@ export default {
 		return {};
 	},
 	methods: {
-		settingBtn () {
+		settingBtn() {
 			uni.navigateTo({
 				url: `/pages/setting/setting`
 			});
@@ -144,7 +145,7 @@ export default {
 		position: absolute;
 		right: 50rpx;
 		top: 10rpx;
-		color: #FFFFFF;
+		color: #ffffff;
 		.iconfont {
 			font-size: 46rpx;
 		}

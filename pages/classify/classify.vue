@@ -1,41 +1,44 @@
 <template>
 	<view class="u-wrap">
-		<view class="u-search-box">
-			<view class="u-search-inner">
-				<u-icon name="search" color="#909399" :size="28"></u-icon>
-				<text class="u-search-text">搜索商品</text>
-			</view>
-		</view>
-		<view class="u-menu-wrap">
-			<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
-				<view
-					v-for="(item, index) in tabbar"
-					:key="index"
-					class="u-tab-item"
-					:class="[current == index ? 'u-tab-item-active' : '']"
-					:data-current="index"
-					@tap.stop="swichMenu(index)"
-				>
-					<text class="u-line-1">{{ item.name }}</text>
+		<u-navbar title="分类" :background="{ background: '#ff5529' }" titleColor="#fff" :is-back="false" />
+		<view class="u-wrap">
+			<view class="u-search-box">
+				<view class="u-search-inner">
+					<u-icon name="search" color="#909399" :size="28"></u-icon>
+					<text class="u-search-text">搜索商品</text>
 				</view>
-			</scroll-view>
-			<block v-for="(item, index) in tabbar" :key="index">
-				<scroll-view scroll-y class="right-box" v-if="current == index">
-					<view class="page-view">
-						<view class="class-item">
-							<view class="item-title">
-								<text>{{ item.name }}</text>
-							</view>
-							<view class="item-container">
-								<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1">
-									<image class="item-menu-image" :src="item1.icon" mode=""></image>
-									<view class="item-menu-name">{{ item1.name }}</view>
+			</view>
+			<view class="u-menu-wrap">
+				<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
+					<view
+						v-for="(item, index) in tabbar"
+						:key="index"
+						class="u-tab-item"
+						:class="[current == index ? 'u-tab-item-active' : '']"
+						:data-current="index"
+						@tap.stop="swichMenu(index)"
+					>
+						<text class="u-line-1">{{ item.name }}</text>
+					</view>
+				</scroll-view>
+				<block v-for="(item, index) in tabbar" :key="index">
+					<scroll-view scroll-y class="right-box" v-if="current == index">
+						<view class="page-view">
+							<view class="class-item">
+								<view class="item-title">
+									<text>{{ item.name }}</text>
+								</view>
+								<view class="item-container">
+									<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1">
+										<image class="item-menu-image" :src="item1.icon" mode=""></image>
+										<view class="item-menu-name">{{ item1.name }}</view>
+									</view>
 								</view>
 							</view>
 						</view>
-					</view>
-				</scroll-view>
-			</block>
+					</scroll-view>
+				</block>
+			</view>
 		</view>
 	</view>
 </template>
